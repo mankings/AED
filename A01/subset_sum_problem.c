@@ -195,8 +195,8 @@ int main(void) {
 
     int n;
     integer_t *p, *sums;
+    
 
-    /*
     printf("\nBruteForce function\n");
     n = all_subset_sum_problems[0].n;
     p = all_subset_sum_problems[0].p;
@@ -209,7 +209,6 @@ int main(void) {
         printBinary(n, BFTest.b);
         printf("Result 1: %d\n", result);
     }
-    */
 
     printf("\nBranchAndBound function\n");
     n = all_subset_sum_problems[0].n;
