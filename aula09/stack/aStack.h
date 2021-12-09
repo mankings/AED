@@ -10,11 +10,21 @@
 #include <cassert>
 
 template <typename T> class aStack {
-  
+
   private:
     int max_size; // maximum stack size
     int cur_size; // current stack size
     T *data;      // the stack data (stored in an array)
+
+    int growStack() {
+      T *newData = new T[cur_size + 100];
+      for (int i = 0; i < max_size; i++) {
+        newData[i] = data[i];
+      }
+
+      data = newData;
+      return 0;
+    }
 
   public:
     aStack(int n = 100) {
@@ -40,7 +50,7 @@ template <typename T> class aStack {
     }
 
     void push(T &v) {
-        assert(cur_size < max_size);
+        if(cur_size == max_size) { growStack(); };
         data[cur_size++] = v;
     }
 
