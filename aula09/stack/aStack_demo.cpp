@@ -18,15 +18,17 @@ int check_parenthesis(const char *s) {
       if(s[i] == '(') { intStack.push(i); }
       else if(s[i] == ')') { 
         if(intStack.is_empty()) {
-          cout << "  unmatched ')' at position " << i+1 << endl;
+          cout << "  unmatched ')' at position " << i << endl;
           return -1;
         }
-        cout << "  '(' at position " << intStack.pop()+1 << " and matching ')' at position " << i+1 << endl;
+        cout << "  '(' at position " << intStack.pop() << " and matching ')' at position " << i << endl;
       }
     }
 
     if(intStack.is_empty()) { return 0; }
-    cout << "  unmatched '(' at position " << intStack.pop()+1 << endl;
+    while(!intStack.is_empty()) {
+      cout << "  unmatched '(' at position " << intStack.pop() << endl;
+    }
     return -1;
 }
 

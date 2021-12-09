@@ -50,7 +50,7 @@ template <typename T> class aStack {
     }
 
     void push(T &v) {
-        if(cur_size == max_size) { growStack(); };
+        if(is_full()) { growStack(); };
         data[cur_size++] = v;
     }
 
